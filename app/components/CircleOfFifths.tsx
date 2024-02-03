@@ -1,13 +1,53 @@
+"use client";
 import React from "react";
+import { KeyType } from "./KeyInformation";
 
-const CircleOfFifths = () => {
+interface CircleOfFifthsProps {
+  setSelectedKey: React.Dispatch<React.SetStateAction<KeyType>>;
+}
+
+const CircleOfFifths = ({ setSelectedKey }: CircleOfFifthsProps) => {
+  const isValidKey = (key: string): key is KeyType => {
+    return [
+      "C",
+      "G",
+      "D",
+      "A",
+      "E",
+      "B",
+      "F#",
+      "Db",
+      "Ab",
+      "Eb",
+      "Bb",
+      "F",
+    ].includes(key);
+  };
+
+  const handleKeyClick = (e: React.MouseEvent<SVGPathElement>) => {
+    let keyId = e.currentTarget.id;
+    if (isValidKey(keyId)) {
+      setSelectedKey(keyId);
+    } else {
+      console.error("Invalid key:", keyId);
+    }
+  };
+
+  const handleTextClick = (e: React.MouseEvent<SVGTextElement>) => {
+    let keyId = e.currentTarget.textContent;
+    if (keyId && isValidKey(keyId)) {
+      setSelectedKey(keyId);
+    } else {
+      console.error("Invalid key:", keyId);
+    }
+  };
   return (
     <svg
       xmlnsXlink="http://www.w3.org/2000/svg"
-      width={"50%"}
-      height={"50%"}
+      width={"100%"}
+      height={"100%"}
       version="1.1"
-      viewBox="0 0 487.03 444.24"
+      viewBox="57 18 400 400"
     >
       <g transform="translate(56.631 12.585)">
         <g
@@ -17,6 +57,7 @@ const CircleOfFifths = () => {
           stroke-width="2"
         >
           <path
+            onClick={handleKeyClick}
             id="G"
             transform="translate(10.11 -9.4359)"
             d="m265.83 124.12c-13.324-12.222-29.443-21.709-47.727-27.33-2.095-0.64409-4.271 0.60953-4.8383 2.7267l-9.6798 36.126c-0.5673 2.1172 0.68921 4.2978 2.7716 4.9814 10.373 3.4052 19.653 8.7106 27.554 15.423 1.6703 1.419 4.2179 1.3851 5.7678-0.16477 9.7739-9.7739 17.216-17.216 26.227-26.227 1.5499-1.5499 1.5397-4.0532-0.0755-5.5348z"
@@ -24,66 +65,77 @@ const CircleOfFifths = () => {
             style={{ mixBlendMode: "normal" }}
           />
           <path
+            onClick={handleKeyClick}
             id="D"
             transform="translate(10.11 -9.4359)"
             d="m301.31 180.25c-5.4959-17.728-14.776-34.049-27.157-47.754-1.4692-1.6265-3.9627-1.6463-5.5126-0.0964-9.0011 9.0011-16.433 16.433-26.194 26.194-1.5499 1.5499-1.5599 4.0745-0.10951 5.7176 7.078 8.0182 12.548 17.347 16.085 27.435 0.72527 2.0682 2.9392 3.3154 5.0564 2.7481 13.059-3.4993 23.017-6.1675 35.114-9.4088 2.1172-0.5673 3.3662-2.742 2.7172-4.8355z"
             color="#000000"
           />
           <path
+            onClick={handleKeyClick}
             id="A"
             transform="translate(10.11 -9.4359)"
             d="m303.9 246.37c4.1634-18.569 4.0916-37.155 0.38593-54.69-0.45317-2.1444-2.5971-3.4097-4.7143-2.8424-12.086 3.2384-22.033 5.9037-35.076 9.3983-2.1172 0.56729-3.3974 2.751-2.9756 4.9017 2.0148 10.272 2.0852 21.062-0.0697 31.86-0.42891 2.1493 0.84762 4.332 2.9648 4.8993l34.725 9.3045c2.1172 0.5673 4.2805-0.69304 4.76-2.8317z"
             color="#000000"
           />
           <path
+            onClick={handleKeyClick}
             id="E"
             transform="translate(10.11 -9.4359)"
             d="m273.51 305.03c12.04-13.23 21.482-29.186 27.276-47.253 0.66939-2.0871-0.56148-4.2568-2.6787-4.824l-34.726-9.3048c-2.1172-0.5673-4.3336 0.67911-5.061 2.7466-3.6362 10.336-9.173 19.545-16.111 27.336-1.4575 1.6368-1.4534 4.1555 0.0965 5.7054 9.5699 9.5698 16.831 16.831 25.681 25.681 1.5499 1.5499 4.0475 1.5341 5.5227-0.0869z"
             color="#000000"
           />
           <path
+            onClick={handleKeyClick}
             id="B"
             transform="translate(10.11 -9.4359)"
             d="m217.93 340.75c17.489-5.576 33.637-14.913 47.253-27.346 1.6186-1.4779 1.6323-3.9776 0.0824-5.5275-8.8667-8.8667-16.142-16.142-25.737-25.737-1.5499-1.5499-4.1031-1.5898-5.7795-0.17794-8.0834 6.8077-17.416 12.021-27.464 15.332-2.0816 0.68585-3.3379 2.8673-2.7706 4.9845 3.5864 13.385 6.2922 23.483 9.5883 35.784 0.56732 2.1172 1.0272 3.8335 1.0272 3.8335z"
             color="#000000"
           />
           <path
-            id="Fsharp"
+            onClick={handleKeyClick}
+            id="F#"
             transform="translate(10.11 -9.4359)"
             d="m151.99 343.51c18.48 4.2366 37.018 4.1257 54.531 0.30476 2.1414-0.46722 3.4036-2.6235 2.8364-4.7407-3.3014-12.322-6.012-22.438-9.6058-35.851-0.56728-2.1172-2.759-3.4303-4.9172-3.049-10.057 1.777-20.58 1.7037-31.101-0.49813-2.1452-0.44896-4.3237 0.81124-4.891 2.9284l-9.6797 36.125c-0.5673 2.1172 0.69036 4.2908 2.8267 4.7806z"
             color="#000000"
           />
           <path
+            onClick={handleKeyClick}
             id="Db"
             transform="translate(10.11 -9.4359)"
             d="m94.055 312.6c12.978 12.236 28.702 21.832 46.561 27.718 2.0816 0.68608 4.248-0.5332 4.8153-2.6504l9.6797-36.125c0.5673-2.1172-0.67431-4.3498-2.7347-5.097-9.9709-3.616-18.874-9.0103-26.447-15.723-1.64-1.4538-4.1616-1.4469-5.7115 0.10303-9.8561 9.8562-17.189 17.189-26.201 26.201-1.5499 1.5499-1.5569 4.0705 0.03783 5.5741z"
             color="#000000"
           />
           <path
+            onClick={handleKeyClick}
             id="Ab"
             transform="translate(10.11 -9.4359)"
             d="m59.705 257.22c5.3082 17.338 14.226 33.347 26.129 46.893 1.4467 1.6465 3.9226 1.6832 5.4724 0.13326 9.0107-9.0109 16.34-16.341 26.199-26.2 1.5499-1.5499 1.5868-4.1004 0.17081-5.7732-6.6287-7.8309-11.765-16.839-15.111-26.542-0.71447-2.0719-2.9191-3.3218-5.0363-2.7545-13.21 3.5397-22.99 6.1604-35.093 9.4033-2.1172 0.56729-3.3722 2.7436-2.7306 4.8394z"
             color="#000000"
           />
           <path
+            onClick={handleKeyClick}
             id="Eb"
             transform="translate(10.11 -9.4359)"
             d="m57.043 192.46c-3.9216 18.104-3.8395 36.207-0.28738 53.319 0.44548 2.146 2.5834 3.4128 4.7006 2.8455 12.098-3.2416 21.872-5.8606 35.074-9.398 2.1172-0.56729 3.4068-2.7533 2.997-4.9064-1.8732-9.8422-1.9569-20.153-0.01741-30.485 0.40437-2.154-0.89198-4.3417-3.0092-4.909l-34.726-9.3048c-2.1172-0.5673-4.268 0.69625-4.732 2.8384z"
             color="#000000"
           />
           <path
+            onClick={handleKeyClick}
             id="Bb"
             transform="translate(10.11 -9.4359)"
             d="m86.203 134.42c-11.57 13.144-20.609 28.881-26.153 46.615-0.6539 2.092 0.58942 4.2651 2.7066 4.8324l34.725 9.3045c2.1172 0.5673 4.314-0.68473 5.0173-2.7605 3.39-10.006 8.5512-18.98 15.042-26.658 1.4149-1.6737 1.3782-4.2241-0.17175-5.774-9.6511-9.651-16.832-16.832-25.692-25.691-1.5499-1.5499-4.0264-1.5138-5.4746 0.13138z"
             color="#000000"
           />
           <path
+            onClick={handleKeyClick}
             id="F"
             transform="translate(10.11 -9.4359)"
             d="m140.66 97.99c-17.165 5.8811-32.949 15.426-46.223 27.957-1.5938 1.5045-1.587 4.0249-0.03715 5.5748 8.8572 8.8574 16.038 16.038 25.686 25.686 1.5499 1.5499 4.0716 1.557 5.7116 0.10312 7.7699-6.8883 16.78-12.257 26.522-15.821 2.0583-0.75292 3.2985-2.99 2.7312-5.1072-3.5951-13.417-6.2922-23.482-9.5891-35.786-0.56729-2.1172-2.7278-3.3169-4.8013-2.6065z"
             color="#000000"
           />
           <path
+            onClick={handleKeyClick}
             id="C"
             transform="translate(10.11 -9.4359)"
             d="m207.94 94.144c-19.46-4.2634-38.954-3.728-57.226 0.87392-1.417 0.35688-2.2521 1.8174-1.8739 3.2289 3.5601 13.287 6.3817 23.818 10.274 38.344 0.3782 1.4115 1.8304 2.2527 3.2555 1.9301 13.484-3.0529 25.355-2.167 33.825-0.53466 1.4348 0.27649 2.8959-0.60095 3.2741-2.0124l10.364-38.681c0.37819-1.4115-0.4663-2.8361-1.8937-3.1488z"
@@ -99,7 +151,9 @@ const CircleOfFifths = () => {
           stroke-width="0"
         >
           <text
+            className="cursor-pointer"
             id="Ctext"
+            onClick={handleTextClick}
             transform="matrix(.26458 0 0 .26458 159.28 -255.11)"
             xmlSpace="preserve"
           >
@@ -109,6 +163,8 @@ const CircleOfFifths = () => {
           </text>
 
           <text
+            className="cursor-pointer"
+            onClick={handleTextClick}
             id="Gtext"
             transform="matrix(.26458 0 0 .26458 211.74 -243.16)"
             xmlSpace="preserve"
@@ -119,6 +175,8 @@ const CircleOfFifths = () => {
           </text>
 
           <text
+            className="cursor-pointer"
+            onClick={handleTextClick}
             id="Dtext"
             transform="matrix(.26458 0 0 .26458 250.53 -203.75)"
             xmlSpace="preserve"
@@ -129,6 +187,8 @@ const CircleOfFifths = () => {
           </text>
 
           <text
+            className="cursor-pointer"
+            onClick={handleTextClick}
             id="Atext"
             transform="matrix(.26458 0 0 .26458 264.51 -150.72)"
             xmlSpace="preserve"
@@ -139,6 +199,8 @@ const CircleOfFifths = () => {
           </text>
 
           <text
+            className="cursor-pointer"
+            onClick={handleTextClick}
             id="Etext"
             transform="matrix(.26458 0 0 .26458 250.41 -99.472)"
             xmlSpace="preserve"
@@ -149,6 +211,8 @@ const CircleOfFifths = () => {
           </text>
 
           <text
+            className="cursor-pointer"
+            onClick={handleTextClick}
             id="Btext"
             transform="matrix(.26458 0 0 .26458 212.39 -58.996)"
             xmlSpace="preserve"
@@ -159,6 +223,8 @@ const CircleOfFifths = () => {
           </text>
 
           <text
+            className="cursor-pointer"
+            onClick={handleTextClick}
             id="Fsharptext"
             transform="matrix(.26458 0 0 .26458 153.59 -46.197)"
             xmlSpace="preserve"
@@ -169,6 +235,8 @@ const CircleOfFifths = () => {
           </text>
 
           <text
+            className="cursor-pointer"
+            onClick={handleTextClick}
             id="Dbtext"
             transform="matrix(.26458 0 0 .26458 99.527 -61.898)"
             xmlSpace="preserve"
@@ -178,6 +246,8 @@ const CircleOfFifths = () => {
             </tspan>
           </text>
           <text
+            className="cursor-pointer"
+            onClick={handleTextClick}
             id="Abtext"
             transform="matrix(.26458 0 0 .26458 64.608 -100.85)"
             // style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;shape-inside:url(#rect44);white-space:pre"
@@ -188,6 +258,8 @@ const CircleOfFifths = () => {
             </tspan>
           </text>
           <text
+            className="cursor-pointer"
+            onClick={handleTextClick}
             id="Ebtext"
             transform="matrix(.26458 0 0 .26458 51.209 -151.38)"
             xmlSpace="preserve"
@@ -197,6 +269,8 @@ const CircleOfFifths = () => {
             </tspan>
           </text>
           <text
+            className="cursor-pointer"
+            onClick={handleTextClick}
             id="Bbtext"
             transform="matrix(.26458 0 0 .26458 62.792 -202.57)"
             xmlSpace="preserve"
@@ -206,6 +280,8 @@ const CircleOfFifths = () => {
             </tspan>
           </text>
           <text
+            className="cursor-pointer"
+            onClick={handleTextClick}
             id="Ftext"
             transform="matrix(.26458 0 0 .26458 108.66 -241.41)"
             xmlSpace="preserve"
