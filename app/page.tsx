@@ -8,9 +8,9 @@ import { KeyType } from "./components/KeyInformation";
 export default function Home() {
   const [selectedKey, setSelectedKey] = useState<KeyType>("C");
   return (
-    <main className="flex flex-col min-h-screen">
+    <main className="">
       <Header />
-      <div className="flex-grow flex justify-center">
+      <div className="justify-center grid grid-cols-2 mx-20">
         <CircleOfFifths setSelectedKey={setSelectedKey} />
         <KeyInformation selectedKey={selectedKey} />
       </div>

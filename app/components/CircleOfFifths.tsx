@@ -50,12 +50,7 @@ const CircleOfFifths = ({ setSelectedKey }: CircleOfFifthsProps) => {
       viewBox="57 18 400 400"
     >
       <g transform="translate(56.631 12.585)">
-        <g
-          fill="#411d27"
-          stroke="#572a39"
-          stroke-miterlimit="0"
-          stroke-width="2"
-        >
+        <g fill="#411d27" stroke="#572a39" strokeMiterlimit="0" strokeWidth="2">
           <path
             onClick={handleKeyClick}
             id="G"
@@ -144,11 +139,11 @@ const CircleOfFifths = ({ setSelectedKey }: CircleOfFifthsProps) => {
         </g>
         <g
           fill="#cc4c70"
-          font-family="Satoshi"
-          font-size="74.667px"
-          font-weight="bold"
+          fontFamily="Satoshi"
+          fontSize="74.667px"
+          fontWeight="bold"
           stroke="#000000"
-          stroke-width="0"
+          strokeWidth="0"
         >
           <text
             className="cursor-pointer"
@@ -250,7 +245,6 @@ const CircleOfFifths = ({ setSelectedKey }: CircleOfFifthsProps) => {
             onClick={handleTextClick}
             id="Abtext"
             transform="matrix(.26458 0 0 .26458 64.608 -100.85)"
-            // style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;shape-inside:url(#rect44);white-space:pre"
             xmlSpace="preserve"
           >
             <tspan x="85.40625" y="1390.1328">
@@ -291,12 +285,7 @@ const CircleOfFifths = ({ setSelectedKey }: CircleOfFifthsProps) => {
             </tspan>
           </text>
         </g>
-        <g
-          fill="#411d27"
-          stroke="#572a39"
-          stroke-miterlimit="0"
-          stroke-width="2"
-        >
+        <g fill="#411d27" stroke="#572a39" strokeMiterlimit="0" strokeWidth="2">
           <path
             id="leadingtone"
             transform="translate(10.11 -9.4359)"
@@ -342,11 +331,11 @@ const CircleOfFifths = ({ setSelectedKey }: CircleOfFifthsProps) => {
         </g>
         <g
           fill="#cc4c70"
-          font-family="Satoshi"
-          font-size="96px"
-          font-weight="bold"
+          fontFamily="Satoshi"
+          fontSize="96px"
+          fontWeight="bold"
           stroke="#000000"
-          stroke-width="0"
+          strokeWidth="0"
         >
           <text
             transform="matrix(.26458 0 0 .26458 163.11 -310.7)"
@@ -405,25 +394,20 @@ const CircleOfFifths = ({ setSelectedKey }: CircleOfFifthsProps) => {
             </tspan>
           </text>
         </g>
-        <g
-          fill="#ffffff"
-          font-family="Satoshi"
-          stroke="#000000"
-          stroke-width="0"
-        >
+        <g fill="#ffffff" fontFamily="Satoshi" stroke="#000000" strokeWidth="0">
           <text
             x="179.40005"
             y="73.699387"
-            font-size="8.4667px"
+            fontSize="8.4667px"
             xmlSpace="preserve"
           >
             <tspan
               x="179.40005"
               y="73.699387"
               fill="#ffffff"
-              font-family="Satoshi"
-              font-size="8.4667px"
-              stroke-width="0"
+              fontFamily="Satoshi"
+              fontSize="8.4667px"
+              strokeWidth="0"
             >
               tonic
             </tspan>
@@ -432,14 +416,14 @@ const CircleOfFifths = ({ setSelectedKey }: CircleOfFifthsProps) => {
             transform="rotate(-32.692)"
             x="26.86002"
             y="143.1696"
-            font-size="8.4667px"
+            fontSize="8.4667px"
             xmlSpace="preserve"
           >
             <tspan x="26.86002" y="143.1696">
               subdominant
             </tspan>
           </text>
-          <g font-size="8.4667px">
+          <g fontSize="8.4667px">
             <text
               transform="rotate(30)"
               x="248.25574"
