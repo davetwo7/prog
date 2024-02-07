@@ -17,4 +17,5 @@ export const soundEngine = () => {
     sound["_sprite"][i] = [timeIndex, lengthOfNote];
     timeIndex += lengthOfNote;
   }
+  sound.volume(0.25);
 };
